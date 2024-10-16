@@ -3,7 +3,6 @@
 ## How do I install these formulae?
 
 ```bash
-brew tap philipparndt/homebrew-kubectx
 brew install philipparndt/kubectx/kubectx
 ```
 

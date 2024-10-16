@@ -2,9 +2,10 @@
 
 ## How do I install these formulae?
 
-`brew install philipparndt/homebrew-kubectx/<formula>`
-
-Or `brew tap philipparndt/homebrew-kubectx` and then `brew install <formula>`.
+```bash
+brew tap philipparndt/homebrew-kubectx
+brew install philipparndt/kubectx/kubectx
+```
 
 ## Documentation
 

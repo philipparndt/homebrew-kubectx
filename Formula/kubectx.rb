@@ -5,65 +5,126 @@
 class Kubectx < Formula
   desc "Command-line tool for managing Kubernetes contexts"
   homepage "https://github.com/philipparndt/kubectx"
-  version "0.2.10"
+  version "0.2.11"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/philipparndt/kubectx/releases/download/0.2.10/kubectx_darwin_x86_64.tar.gz"
-      sha256 "a94e39baa31df4de7706dcd333f89fbc8d61be7713405698b19f716cb4688d75"
+      url "https://github.com/philipparndt/kubectx/releases/download/0.2.11/kubectx_darwin_x86_64.tar.gz"
+      sha256 "a7bccf3cb69bf7a5adcb1bd83b68f2e450b1529f99165f0a455bb1ec5fe900c1"
 
       def install
         bin.install "kubectx"
+
+        begin
+          bash_output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/kubectx completion bash")
+          (bash_completion/"kubectx").write bash_output
+        rescue => e
+          opoo "Failed to install bash completion: #{e}"
+        end
+
+        begin
+          zsh_output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/kubectx completion zsh")
+          (zsh_completion/"_kubectx").write zsh_output
+        rescue => e
+          opoo "Failed to install zsh completion: #{e}"
+        end
+
+        begin
+          fish_output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/kubectx completion fish")
+          (fish_completion/"kubectx.fish").write fish_output
+        rescue => e
+          opoo "Failed to install fish completion: #{e}"
+        end
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/philipparndt/kubectx/releases/download/0.2.10/kubectx_darwin_arm64.tar.gz"
-      sha256 "439da0ff3ad89bce1e9350924aff2c480089ecb587dff6855ec044abb311bb29"
+      url "https://github.com/philipparndt/kubectx/releases/download/0.2.11/kubectx_darwin_arm64.tar.gz"
+      sha256 "32627136eb4beb38c0303e75415680a0f6d18aff63df2ff6d83925e329741987"
 
       def install
         bin.install "kubectx"
+
+        begin
+          bash_output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/kubectx completion bash")
+          (bash_completion/"kubectx").write bash_output
+        rescue => e
+          opoo "Failed to install bash completion: #{e}"
+        end
+
+        begin
+          zsh_output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/kubectx completion zsh")
+          (zsh_completion/"_kubectx").write zsh_output
+        rescue => e
+          opoo "Failed to install zsh completion: #{e}"
+        end
+
+        begin
+          fish_output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/kubectx completion fish")
+          (fish_completion/"kubectx.fish").write fish_output
+        rescue => e
+          opoo "Failed to install fish completion: #{e}"
+        end
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/philipparndt/kubectx/releases/download/0.2.10/kubectx_linux_x86_64.tar.gz"
-      sha256 "8278e0216762fc41e82fad7a917c4413628e55166d8224bb3c9c3c7896f91acb"
+      url "https://github.com/philipparndt/kubectx/releases/download/0.2.11/kubectx_linux_x86_64.tar.gz"
+      sha256 "82989ef5b9ab5f5072c9297ac18da77b45aa7e287eed4a5af93a30f84028a9bb"
       def install
         bin.install "kubectx"
+
+        begin
+          bash_output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/kubectx completion bash")
+          (bash_completion/"kubectx").write bash_output
+        rescue => e
+          opoo "Failed to install bash completion: #{e}"
+        end
+
+        begin
+          zsh_output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/kubectx completion zsh")
+          (zsh_completion/"_kubectx").write zsh_output
+        rescue => e
+          opoo "Failed to install zsh completion: #{e}"
+        end
+
+        begin
+          fish_output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/kubectx completion fish")
+          (fish_completion/"kubectx.fish").write fish_output
+        rescue => e
+          opoo "Failed to install fish completion: #{e}"
+        end
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/philipparndt/kubectx/releases/download/0.2.10/kubectx_linux_arm64.tar.gz"
-      sha256 "db66e741cd33d71eb0ce4bf790522cca67af5b08fd5e64adbfbac99f54ce44c2"
+      url "https://github.com/philipparndt/kubectx/releases/download/0.2.11/kubectx_linux_arm64.tar.gz"
+      sha256 "67e094eb98185477b44432021c4fafceaffe249049c18511224ca80809e88781"
       def install
         bin.install "kubectx"
+
+        begin
+          bash_output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/kubectx completion bash")
+          (bash_completion/"kubectx").write bash_output
+        rescue => e
+          opoo "Failed to install bash completion: #{e}"
+        end
+
+        begin
+          zsh_output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/kubectx completion zsh")
+          (zsh_completion/"_kubectx").write zsh_output
+        rescue => e
+          opoo "Failed to install zsh completion: #{e}"
+        end
+
+        begin
+          fish_output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/kubectx completion fish")
+          (fish_completion/"kubectx.fish").write fish_output
+        rescue => e
+          opoo "Failed to install fish completion: #{e}"
+        end
       end
-    end
-  end
-
-  def post_install
-    begin
-      bash_output = Utils.safe_popen_read("#{bin}/kubectx", "completion", "bash")
-      (bash_completion/"kubectx").write bash_output
-    rescue => e
-      opoo "Failed to install bash completion: #{e}"
-    end
-
-    begin
-      zsh_output = Utils.safe_popen_read("#{bin}/kubectx", "completion", "zsh")
-      (zsh_completion/"_kubectx").write zsh_output
-    rescue => e
-      opoo "Failed to install zsh completion: #{e}"
-    end
-
-    begin
-      fish_output = Utils.safe_popen_read("#{bin}/kubectx", "completion", "fish")
-      (fish_completion/"kubectx.fish").write fish_output
-    rescue => e
-      opoo "Failed to install fish completion: #{e}"
     end
   end
 

@@ -5,13 +5,13 @@
 class Kubectx < Formula
   desc "Command-line tool for managing Kubernetes contexts"
   homepage "https://github.com/philipparndt/kubectx"
-  version "0.3.0"
+  version "0.3.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/philipparndt/kubectx/releases/download/0.3.0/kubectx_darwin_x86_64.tar.gz"
-      sha256 "b02715b1273a3d04a8792820c9ca7186d18ade34f14c4a8f9dbda28733262df0"
+      url "https://github.com/philipparndt/kubectx/releases/download/0.3.1/kubectx_darwin_x86_64.tar.gz"
+      sha256 "2895f004738a60744520cac31dfdd5fb9f43b0e509f2542cfce6cec52aa8764b"
 
       def install
         bin.install "kubectx"
@@ -39,8 +39,8 @@ class Kubectx < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/philipparndt/kubectx/releases/download/0.3.0/kubectx_darwin_arm64.tar.gz"
-      sha256 "b12e8928097528c3f04e088fa75825301bc5ecabae2d9c69a7fe9eb8a17c2d19"
+      url "https://github.com/philipparndt/kubectx/releases/download/0.3.1/kubectx_darwin_arm64.tar.gz"
+      sha256 "7441adfff8ef6f36e9e1e51887440bb3f5bd4b203599b14d9c06e12116e37471"
 
       def install
         bin.install "kubectx"
@@ -71,8 +71,8 @@ class Kubectx < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/philipparndt/kubectx/releases/download/0.3.0/kubectx_linux_x86_64.tar.gz"
-      sha256 "97e47e97bd5d911a64ca6a97156c560304fc3104f3baa0e3c39a12ec990b0555"
+      url "https://github.com/philipparndt/kubectx/releases/download/0.3.1/kubectx_linux_x86_64.tar.gz"
+      sha256 "4514c4c32c4919cb2057537e337d8f5ceb60a3e5d3d14241f9d2350d8c06dedb"
       def install
         bin.install "kubectx"
 
@@ -99,8 +99,8 @@ class Kubectx < Formula
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/philipparndt/kubectx/releases/download/0.3.0/kubectx_linux_arm64.tar.gz"
-      sha256 "ff55657926ac5f74bb854e8ffb96a7db3744633bea79ece501082c3abdd463c5"
+      url "https://github.com/philipparndt/kubectx/releases/download/0.3.1/kubectx_linux_arm64.tar.gz"
+      sha256 "ddff81660d3078f71eb283eec8e4d9f0adbe9e5519e737257624897e610ad6a9"
       def install
         bin.install "kubectx"
 
